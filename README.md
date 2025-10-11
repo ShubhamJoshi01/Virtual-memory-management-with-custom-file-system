@@ -9,7 +9,8 @@ Virtual Memory Management: Simulates larger virtual memory than physical RAM, wi
 
 Process Scheduling: Simulates common CPU scheduling algorithms (FCFS, Round Robin, Priority) in conjunction with file and memory operations.
 
-Project Structure
+**Project Structure:**
+
 superblock.h — Metadata storage structure.
 
 bitmap.cpp — Block allocation bitmap management.
@@ -22,7 +23,8 @@ scheduler.cpp — Process scheduling simulation.
 
 main.cpp — integration of all modules.
 
-Getting Started
+**Getting Started**
+
 Requires Windows with administrative privileges for raw USB access.
 
 Developed in C++ using Windows API.
@@ -33,7 +35,8 @@ Run the executable as Administrator to access pendrive raw blocks.
 
 Start by exploring file system initialization and reading/writing via CLI commands.
 
-Usage
+**Usage:**
+
 Interact via CLI commands like:
 
 create, read, delete, ls — File system operations.
@@ -42,7 +45,8 @@ alloc, free, meminfo — Memory management.
 
 run, ps — Process scheduling.
 
-References
+**References:**
+
 Silberschatz, Galvin, Gagne — Operating System Concepts
 
 Tanenbaum — Modern Operating Systems
