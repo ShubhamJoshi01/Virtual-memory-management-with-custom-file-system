@@ -24,6 +24,9 @@ struct FileEntry{
     bool in_use;
 };
 
+extern unsigned char bitmap[1024/8];
+extern FileEntry file_table[128];
+
 void initialize_superblock(Superblock& sb);
 bool add_file(const char* name,int start_block,int length);
 void set_block_used(int block_num);

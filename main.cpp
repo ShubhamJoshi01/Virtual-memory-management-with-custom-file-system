@@ -14,6 +14,7 @@ int main(){
         cout<<"Failed to open device"<<endl;
         return 1;
     }
+    cout<<"Pend Drive mounted successfully and superblock loaded"<<endl;
     interactive_cli(hDevice);
     CloseHandle(hDevice);
     return 0;

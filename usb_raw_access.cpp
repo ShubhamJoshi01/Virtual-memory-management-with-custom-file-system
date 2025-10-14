@@ -42,7 +42,7 @@ bool read_block(HANDLE hDevice,DWORD block_num,char* buffer,DWORD block_size){
     DWORD move_low=block_num*block_size;
 
     DWORD result=SetFilePointer(hDevice,move_low,(LONG*)&move_high,FILE_BEGIN);
-    if(result==INVALID_SET_FILE_POINTER&&GetLastError()!=NO_ERROR){
+    if(result==INVALID_SET_FILE_POINTER && GetLastError()!=NO_ERROR){
         cerr<<"Error setting file pointer: "<<GetLastError()<<endl;
         return false;
     }
@@ -60,7 +60,7 @@ bool write_block(HANDLE hDevice,DWORD block_num,const char* buffer,DWORD block_s
     DWORD move_low=block_num*block_size;
 
     DWORD result=SetFilePointer(hDevice,move_low,(LONG*)&move_high,FILE_BEGIN);
-    if(result==INVALID_SET_FILE_POINTER&&GetLastError()!=NO_ERROR){
+    if(result==INVALID_SET_FILE_POINTER && GetLastError()!=NO_ERROR){
         cerr<<"Error setting file pointer: "<<GetLastError()<<endl;
         return false;
     }

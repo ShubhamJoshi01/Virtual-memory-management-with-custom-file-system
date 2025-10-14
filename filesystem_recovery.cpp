@@ -1,7 +1,6 @@
 #include "filesystem_recovery.h"
 #include <cstring>
 #include <iostream>
-#include "filesystem.cpp"
 #include "usb_raw_access.h"
 using namespace std;
 
@@ -9,7 +8,10 @@ bool load_superblock(HANDLE hDevice,Superblock &sb){
     char buf[BLOCK_SIZE] = {0};
     if(!read_block(hDevice,0,buf,BLOCK_SIZE)) return false;
     memcpy(&sb,buf,sizeof(Superblock));
-    if(strncmp(sb.version,"v1.0",4)!=0) return false;
+    // if(strncmp(sb.version,"v1.0",4)!=0) return false;
+    if(memcmp(sb.version, "v1.0", 4) != 0) return false;
+    
+    cout<<"hii"<<endl;
     if(sb.total_blocks != TOTAL_BLOCKS) return false;
     if(sb.block_size != BLOCK_SIZE) return false;
     return true;

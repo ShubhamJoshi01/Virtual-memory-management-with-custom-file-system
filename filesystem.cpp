@@ -26,7 +26,9 @@ bool is_block_used(int block_num){
 }
 
 void initialize_superblock(Superblock &sb){
-    strcpy(sb.version,"v1.0");
+    // strcpy(sb.version,"v1.0");
+    strncpy(sb.version, "v1.0", sizeof(sb.version));
+    sb.version[sizeof(sb.version) - 1] = '\0';  
     sb.total_blocks=TOTAL_BLOCKS;
     sb.block_size=BLOCK_SIZE;
     sb.bitmap_block=1;
