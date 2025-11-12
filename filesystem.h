@@ -39,5 +39,10 @@ bool load_bitmap(HANDLE hDevice);
 bool save_file_table(HANDLE hDevice);
 bool load_file_table(HANDLE hDevice);
 
+void initialize_bitmap() ;
+
+void initialize_file_table() ;
+
+
 bool create_file(HANDLE hDevice,const char* filename,int size_in_blocks);
 #endif

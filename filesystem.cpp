@@ -68,6 +68,26 @@ int allocate_blocks(int count) {
     return -1;
 }
 
+void initialize_bitmap() {
+    // Clear all bits - mark all blocks as free initially
+    memset(bitmap, 0, sizeof(bitmap));
+    // Mark system reserved blocks (0-9) as used
+    for (int i = 0; i <= 9; i++) {
+        set_block_used(i);
+    }
+}
+
+void initialize_file_table() {
+    // Clear all entries
+    for (int i = 0; i < 128; i++) {
+        file_table[i].in_use = false;
+        file_table[i].start_block = 0;
+        file_table[i].length = 0;
+        memset(file_table[i].filename, 0, sizeof(file_table[i].filename));
+    }
+}
+
+
 bool save_bitmap(HANDLE hDevice) {
     char buf[BLOCK_SIZE]={0};
     memcpy(buf,bitmap,TOTAL_BLOCKS/8);

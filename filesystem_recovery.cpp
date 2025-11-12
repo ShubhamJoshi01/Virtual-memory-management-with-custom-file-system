@@ -10,8 +10,6 @@ bool load_superblock(HANDLE hDevice,Superblock &sb){
     memcpy(&sb,buf,sizeof(Superblock));
     // if(strncmp(sb.version,"v1.0",4)!=0) return false;
     if(memcmp(sb.version, "v1.0", 4) != 0) return false;
-    
-    cout<<"hii"<<endl;
     if(sb.total_blocks != TOTAL_BLOCKS) return false;
     if(sb.block_size != BLOCK_SIZE) return false;
     return true;
@@ -41,6 +39,7 @@ bool validate_file_table(){
 bool load_and_validate_file_system(HANDLE hDevice, Superblock &sb){
     if(!load_superblock(hDevice,sb)) return false;
     if(!load_bitmap(hDevice)) return false;
+    cout<<"hii ";
     if(!load_file_table(hDevice)) return false;
     if(!validate_bitmap()) return false;
     if(!validate_file_table()) return false;
